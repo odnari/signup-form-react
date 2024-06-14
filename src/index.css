@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(165deg, rgba(244, 249, 255, 1) 0%, rgba(224, 237, 251, 1) 100%);
+}
+
+body:after {
+    background-image: url("/src/assets/background-stars.svg");
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
