@@ -2,9 +2,16 @@ import {forwardRef, useState} from 'react';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import Input, {InputProps, InputPropsWithoutRef} from "src/components/Input";
 
+function PasswordToggleIcon({active}: { active: boolean }) {
+    return active ? <FaEyeSlash/> : <FaEye/>
+}
 
 const PasswordInput = forwardRef<HTMLInputElement, InputProps>((props: InputPropsWithoutRef, ref) => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const onTogglePassword = () => {
+        setShowPassword((prev) => !prev)
+    }
 
     return (
         <div>
@@ -13,9 +20,9 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProps>((props: InputProp
                 rightInnerComponent={(
                     <button
                         type='button'
-                        onClick={() => setShowPassword((prev) => !prev)}
+                        onClick={onTogglePassword}
                     >
-                        {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                        <PasswordToggleIcon active={showPassword}/>
                     </button>
                 )}
                 type={showPassword ? 'text' : 'password'}

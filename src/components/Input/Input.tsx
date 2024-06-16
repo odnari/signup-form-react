@@ -20,7 +20,6 @@ const Input = forwardRef<HTMLInputElement, InputPropsWithoutRef>((
         placeholder,
         type = 'text',
         isValid,
-        onChange,
         rightInnerComponent = null,
         ...props
     }, ref: LegacyRef<HTMLInputElement>) => {
@@ -38,12 +37,12 @@ const Input = forwardRef<HTMLInputElement, InputPropsWithoutRef>((
             className={'flex-grow focus:outline-none'}
             type={type}
             placeholder={placeholder}
-            onChange={onChange}
             {...props}
         />
         {rightInnerComponent}
     </div>
 })
 
+Input.displayName = 'Input'
 
 export default Input
