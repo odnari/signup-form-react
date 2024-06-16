@@ -14,3 +14,7 @@ body:after {
     inset: 0;
     z-index: -1;
 }
+
+input[type="password"]::-ms-reveal {
+    display: none;
+}
